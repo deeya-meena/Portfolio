@@ -1,27 +1,79 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://deeya-meena.github.io/Portfolio";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0f19" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Deeya | Software Developer & AI Engineer Portfolio",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Deeya Meena | Software Developer & AI Engineer",
+    template: "%s | Deeya Meena",
+  },
   description:
-    "Modern developer portfolio website of Deeya - Software Developer, AI Engineer, Full Stack Developer, and Machine Learning Enthusiast.",
+    "Developer portfolio website of Deeya Meena — B.Tech ECE Student at IIIT Bhopal, Full Stack Web Developer, AI & Cloud Enthusiast.",
   keywords: [
-    "Deeya",
-    "Portfolio",
+    "Deeya Meena",
+    "IIIT Bhopal",
     "Software Developer",
-    "AI Engineer",
     "Full Stack Developer",
-    "Machine Learning",
-    "Next.js 15",
+    "AI Engineer",
+    "Next.js Portfolio",
     "React",
     "TypeScript",
+    "C++ Developer",
+    "Cloud Engineer",
   ],
-  authors: [{ name: "Deeya" }],
+  authors: [{ name: "Deeya Meena", url: siteUrl }],
+  creator: "Deeya Meena",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
-    title: "Deeya | Software Developer & AI Engineer Portfolio",
+    title: "Deeya Meena | Software Developer & AI Engineer",
     description:
-      "Crafting high-performance web applications and intelligent machine learning models.",
+      "Crafting intelligent, high-performance web applications and cloud software solutions.",
+    url: siteUrl,
+    siteName: "Deeya Meena Portfolio",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Deeya Meena - Portfolio",
+      },
+    ],
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deeya Meena | Software Developer & AI Engineer",
+    description:
+      "Full-stack web applications, AI integrations, and cloud software solutions.",
+    images: ["/og-image.svg"],
+    creator: "@deeyameena",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
